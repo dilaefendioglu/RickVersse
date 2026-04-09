@@ -9,9 +9,9 @@ const api = axios.create({
 export const getCharacter = async (params) => {
   try {
     const { data } = await api.get("/character", { params });
-    return data.results;
+    return data;
   } catch (error) {
     console.error("error", error);
-    return [];
+    return null;
   }
 };
