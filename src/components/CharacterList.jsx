@@ -5,9 +5,22 @@ const CharacterList = ({ characters, isLoading }) => {
     <div className="character-list">
       {characters?.map((char) => (
         <div key={char.id} className="character-card">
-          <img src={char.image} alt={char.name} />
-          <h1>{char.name}</h1>
-          <p>{char.status}</p>
+          <div className="image-wrapper">
+            <img src={char.image} alt={char.name} />
+          </div>
+
+          <div className="character-details">
+            <h3>{char.name}</h3>
+            <div className="status-info">
+              <span
+                className={`status-icon ${char.status.toLowerCase()}`}
+              ></span>
+              <span>
+                {char.status} - {char.species}
+              </span>
+            </div>
+            <p className="location-label">Origin: {char.origin.name}</p>
+          </div>
         </div>
       ))}
     </div>

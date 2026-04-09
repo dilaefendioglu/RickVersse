@@ -3,6 +3,7 @@ import { getCharacter } from "../services/api";
 import CharacterList from "../components/CharacterList";
 import SearchInput from "../components/SearchInput";
 import useDebounce from "../hooks/useDebounce";
+import "../styles/Home.css";
 
 export const Home = () => {
   const [characters, setCharacters] = useState([]);
@@ -34,15 +35,18 @@ export const Home = () => {
   }, [debouncedSearch, page]); //searchterm her değiştiğinde useeffect tekrar calısır.
 
   return (
-    <main>
-      <SearchInput
-        value={searchTerm}
-        onChange={(value) => {
-          setSearchTerm(value);
-          setPage(1);
-        }}
-        placeholder="Search Characters.."
-      />
+    <main className="home-container">
+      <div className="header">RİCKVERSE</div>
+      <div className="search-area">
+        <SearchInput
+          value={searchTerm}
+          onChange={(value) => {
+            setSearchTerm(value);
+            setPage(1);
+          }}
+          placeholder="Search Characters.."
+        />
+      </div>
       <CharacterList characters={characters} isLoading={loading} />
 
       <div className="pagination-control">

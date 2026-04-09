@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./assets/galaxy.png'); 
+  
+  background-size: cover;           /* Görseli ekranı kaplayacak şekilde yay */
+  background-position: center;      /* Görseli tam ortala */
+  background-attachment: fixed;     /* BURASI ÇOK ÖNEMLİ: Sayfayı aşağı kaydırsan da görsel sabit kalır */
+  background-repeat: no-repeat;     /* Görselin kendini tekrar etmesini engelle */
+  
+}

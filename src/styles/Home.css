@@ -1,0 +1,163 @@
+/* --- Home.css --- */
+
+/* 1. Ana Konteynır */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* 2. RİCKVERSE Başlığı */
+.header {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px #00ff97;
+  text-shadow: 0 0 15px rgba(0, 255, 151, 0.4);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+/* 3. Arama Alanı */
+.search-area {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 50px;
+}
+
+.search-area input {
+  width: 100%;
+  padding: 12px 25px;
+  border-radius: 30px;
+  background: #202329;
+  border: 2px solid rgba(0, 255, 151, 0.3);
+  color: #00ff97;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-area input:focus {
+  border-color: #00ff97;
+  box-shadow: 0 0 15px rgba(0, 255, 151, 0.4);
+}
+
+/* 4. GRID SİSTEMİ: Yan Yana 4 Tane */
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* SİHİRLİ DOKUNUŞ: Yan yana 4 tane */
+  gap: 15px; /* Kartlar arası boşluk */
+  width: 98%;
+  max-width: 1800px; /* Ekranı tam kullanmak için genişlettik */
+}
+
+/* 5. YATAY KART TASARIMI */
+.character-card {
+  display: flex; /* Resim solda yazı sağda */
+  background-color: #3c3e44;
+  border-radius: 12px;
+  height: 185px; /* 4'lü düzende çok uzun olmamalı, kibar durmalı */
+  overflow: hidden;
+  border: 2px solid rgba(0, 255, 151, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-5px);
+  border-color: #00ff97;
+  box-shadow: 0 0 20px rgba(0, 255, 151, 0.5);
+}
+
+/* Resim Alanı */
+.image-wrapper {
+  width: 180px; /* Kart daraldığı için resmi küçülttük */
+  flex-shrink: 0;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Bilgi Alanı (Details) */
+.character-details {
+  flex: 1;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column; /* BİLGİLER ALT ALTA */
+  justify-content: center;
+  min-width: 0;
+}
+
+/* İSİM: Uppercase ve Okunur Boyut */
+.character-details h1, .character-details h3 {
+  font-size: 1.1rem; /* 4'lü düzende 2rem çok büyük kaçar, 1.1 ideal */
+  text-transform: uppercase; /* TAMAMI BÜYÜK HARF */
+  color: #00ff97;
+  margin: 0 0 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Status ve Origin Satırları */
+.status-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+  color: #f5f5f5;
+}
+
+.location-label {
+  font-size: 1 rem;
+  color: #9e9e9e;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Status İkonları */
+.status-icon {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.alive { background-color: #55cc44; }
+.dead { background-color: #d63d2e; }
+.unknown { background-color: #9e9e9e; }
+
+/* 6. Pagination */
+.pagination-control {
+  display: flex;
+  gap: 20px;
+  margin: 40px 0;
+  align-items: center;
+}
+
+.pagination-control button {
+  background: #3c3e44;
+  color: #00ff97;
+  border: 2px solid rgba(0, 255, 151, 0.4);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 1400px) {
+  .character-list { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 1000px) {
+  .character-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .character-list { grid-template-columns: 1fr; }
+}
